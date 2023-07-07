@@ -24,11 +24,11 @@ echo "Start process..."
 echo "1) Setting up git machine..."
 git_setup
 
-echo "1.5) Ensuring all directories are trusted - Safely, in this case, gets over this check: https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9"
+echo "2) Ensuring all directories are trusted - Safely, in this case, gets over this check: https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9"
 git config --system --add safe.directory '/github/workspace'
 #git config --global --add safe.directory '*'
 
-echo "2) Updating repository tags..."
+echo "3) Updating repository tags..."
 git fetch origin --tags --quiet
 
 last_tag=""
@@ -54,9 +54,9 @@ if [ -z "${last_tag}" ];then
 fi
 
 next_tag="${last_tag%.*}.$((${last_tag##*.}+1))"
-echo "3) Next tag: ${next_tag}";
+echo "4) Next tag: ${next_tag}";
 
-echo "4) Forcing tag update..."
+echo "5) Forcing tag update..."
 git tag -a ${next_tag} -m "${INPUT_MESSAGE}" "${GITHUB_SHA}" -f
-echo "5) Forcing tag push..."
+echo "6) Forcing tag push..."
 git push --tags -f
