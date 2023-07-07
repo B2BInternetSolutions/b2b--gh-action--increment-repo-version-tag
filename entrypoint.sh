@@ -24,6 +24,9 @@ echo "Start process..."
 echo "1) Setting up git machine..."
 git_setup
 
+echo "1.5) Ensuring all directories are trusted"
+git config --global --add safe.directory '*'
+
 echo "2) Updating repository tags..."
 git fetch origin --tags --quiet
 
