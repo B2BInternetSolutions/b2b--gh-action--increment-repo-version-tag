@@ -60,3 +60,11 @@ echo "5) Forcing tag update..."
 git tag -a ${next_tag} -m "${INPUT_MESSAGE}" "${GITHUB_SHA}" -f
 echo "6) Forcing tag push..."
 git push --tags -f
+
+# Now ensure the previous and new tag are set in the outputs so can be used by other steps
+echo "::set-output name=new_tag::$(
+        echo '${next_tag}'
+      )"
+echo "::set-output name=previous_tag::$(
+        echo '${last_tag}'
+      )"

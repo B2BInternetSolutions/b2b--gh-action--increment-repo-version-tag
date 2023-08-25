@@ -9,6 +9,12 @@ branding:
   icon: 'tag'
   color: 'blue'
 
+outputs:
+  new_tag:
+    description: "Generated tag"
+  previous_tag:
+    description: "Previous tag (or ``)"
+
 inputs:
   flag_branch:
     description: 'Flag indicating that the script should look for the lastest tag depending on the branch to which the merge is made. That is, if we are in the branch "8.0" and a merge of a PR is made, it will take the last tag "8.0.15.45" and not "11.0.56.23".'
