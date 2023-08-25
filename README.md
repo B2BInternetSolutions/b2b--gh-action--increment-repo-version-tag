@@ -13,6 +13,13 @@ These are the parameters you can use with the action:
 - `message`: [optional] Message for the tag
 - `prev_tag`: [optional] String to be added before the final tag, for example this parameter takes the value 'v' the final tag will be 'v8.0.15.45'.
 
+## Output parameters
+
+These are the parameters you can use from the action:
+
+- `new_tag`: Value of the new tag applied to the repo.
+- `previous_tag`: Value of the tag prior to the new_tag being applied to the repo.
+
 ## Usage
 
 You can use a workflow like this:
