@@ -63,7 +63,7 @@ git push --tags -f
 
 # Now ensure the previous and new tag are set in the outputs so can be used by other steps
 echo "7) Creating output values ..."
-echo "{new_tag}={next_tag}" >> "$GITHUB_OUTPUT"
-echo "{previous_tag}={last_tag}" >> "$GITHUB_OUTPUT"
+echo "new_tag=$next_tag" >> "$GITHUB_OUTPUT"
+echo "previous_tag=$last_tag" >> "$GITHUB_OUTPUT"
 
 echo "Finished ..."
