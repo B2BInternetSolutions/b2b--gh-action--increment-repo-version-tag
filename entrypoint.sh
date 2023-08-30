@@ -16,6 +16,7 @@ echo "message: ${INPUT_MESSAGE}"
 echo "prev_tag: ${INPUT_PREV_TAG}"
 echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
 echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
+echo "IMAGE: ${IMAGE}"
 echo "HOME: ${HOME}"
 echo "###################"
 echo ""
@@ -63,7 +64,7 @@ git push --tags -f
 
 # Now ensure the previous and new tag are set in the outputs so can be used by other steps
 echo "7) Creating output values ..."
-echo "new_tag=$next_tag" >> "$GITHUB_OUTPUT"
-echo "previous_tag=$last_tag" >> "$GITHUB_OUTPUT"
+echo "new_tag=$IMAGE$next_tag" >> "$GITHUB_OUTPUT"
+echo "previous_tag=$IMAGE$last_tag" >> "$GITHUB_OUTPUT"
 
 echo "Finished ..."
